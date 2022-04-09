@@ -10,14 +10,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CartaoDeCreditoTest {
+class CreditCardTest {
 
 	@Test
 	void testCreditCard() {
 		try {
-			CartaoDeCredito creditCard = new CartaoDeCredito(123, 100);
-			assertEquals(123, creditCard.getNumero());
-			assertEquals(100, creditCard.getSaldo());
+			CreditCard creditCard = new CreditCard(123, 100);
+			assertEquals(123, creditCard.getNumber());
+			assertEquals(100, creditCard.getBalance());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

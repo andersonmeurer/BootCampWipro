@@ -3,9 +3,9 @@ Esse é o desafio de projeto final que compõe o [Bootcamp Backend Java]() insen
 
 ### Descrição do Desafio ⚙️
 
-Considerando o conhecimento e o domínio da linguagem de programação JAVA, iremos elaborar uma aplicação que faça gerenciamento de conta bancária, permitindo que
+Considerando o conhecimento da linguagem de programação JAVA, iremos elaborar uma aplicação que faça gerenciamento de conta bancária, permitindo que
 sejam feitas as operações de criação, consulta e remoção, além das operações de
-saque e depósito e essa conta também deverá ter um cartão de crédito.
+saque e depósito e essa conta também delver ter um cartão de crédito.
 O projeto será desenvolvido em três sprints:
 
     1ª Sprint: 📂

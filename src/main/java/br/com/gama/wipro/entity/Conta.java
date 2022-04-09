@@ -8,6 +8,11 @@ public class Conta {
 
 	protected CartaoDeCredito cartaoDeCredito;
 
+	public Conta(int numero, float saldo) {
+		this.numero = numero;
+		this.saldo = saldo;
+	}
+
 	public CartaoDeCredito getCartaoDeCredito() {
 		return cartaoDeCredito;
 	}

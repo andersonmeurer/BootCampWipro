@@ -17,7 +17,7 @@ class CorrenteTest {
 			account.depositar(550);
 			assertEquals(1000, account.getSaldo());
 			account.sacar(1000000);
-			assertEquals(0, account.getSaldo());
+			assertEquals(1000, account.getSaldo());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

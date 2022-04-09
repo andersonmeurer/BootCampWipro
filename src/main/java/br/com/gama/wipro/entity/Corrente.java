@@ -8,9 +8,8 @@ public class Corrente extends Conta {
 
 	@Override
 	public void sacar(float valor) {
-		if (valor > this.saldo) {
-			valor = this.saldo;
+		if (valor <= this.saldo) {
+			super.sacar(valor);
 		}
-		super.sacar(valor);
 	}
 }

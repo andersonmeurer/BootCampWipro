@@ -1,6 +1,6 @@
 package br.com.gama.wipro.entity;
 
-public class Conta {
+public abstract class Conta {
 
 	protected int numero;
 
@@ -25,11 +25,11 @@ public class Conta {
 		return saldo;
 	}
 
-	public void depositar(float valor) {
+	protected void depositar(float valor) {
 		this.saldo = (saldo + valor);
 	}
 
-	public void sacar(float valor) {
+	protected void sacar(float valor) {
 		this.saldo = (saldo - valor);
 	}
 

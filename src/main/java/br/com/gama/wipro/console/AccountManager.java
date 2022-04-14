@@ -1,43 +1,61 @@
 package br.com.gama.wipro.console;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.gama.wipro.entity.Account;
 
 public class AccountManager {
 
-	private List<Account> Accounts = new ArrayList<Account>();
+	private List<Account> accounts;
+
+	public AccountManager(List<Account> accounts) {
+		super();
+		this.accounts = accounts;
+	}
 
 	public void createAccount(Account account) {
-
-		Accounts.add(account);
+		this.accounts.add(account);
 		System.out.println(account);
 
 	}
 
 	public void removeAccount(Integer number) {
+
 		int index = 0;
-		for (Account account : Accounts) {
+		boolean contaEncontrada = false;
+		
+		for (Account account : accounts) {
 			if (account.getNumber() == number) {
-				index = Accounts.indexOf(account);
+				contaEncontrada = true;
+				index = accounts.indexOf(account);
+				System.out.println(account.toString());
+				accounts.remove(index);
+				break;
 			}
 		}
 		
-		Accounts.remove(index);
+		if (!contaEncontrada) {
+			System.out.println("Conta não encontrada");
+		}
 
 	}
 
-	public String getAccount(Integer number) {
-		for (Account account : Accounts) {
+	public void getAccount(Integer number) {
+
+		boolean contaEncontrada = false;
+
+		for (Account account : accounts) {
 			if (account.getNumber() == number) {
+				contaEncontrada = true;
 				System.out.println(account.toString());
-				return account.toString();
+				break;
 			}
 		}
-		
-		System.out.println("Conta não encontrada");
-		return "";
+
+		if (!contaEncontrada) {
+			System.out.println("Conta não encontrada");
+		}
+
 	}
 
 }

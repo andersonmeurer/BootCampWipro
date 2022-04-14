@@ -12,4 +12,13 @@ public class CurrentAccount extends Account {
 			super.sacar(value);
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "\tConta Corrente"+ 
+			   " \n\n\tNúmero da conta: " + number + 
+		       " \n\tSaldo: " + balance + 
+		       " \n\tCartão de crédito: "+ creditCard +
+	           "\n";
+	}
 }

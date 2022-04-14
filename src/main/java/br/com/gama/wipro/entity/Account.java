@@ -11,6 +11,7 @@ public abstract class Account {
 	public Account(int number, float balance) {
 		this.number = number;
 		this.balance = balance;
+		this.creditCard = new CreditCard(balance);
 	}
 
 	public CreditCard getCreditCard() {
@@ -26,16 +27,19 @@ public abstract class Account {
 	}
 
 	protected void deposit(float value) {
-		this.balance = (balance + value);
+		this.balance += value;
 	}
 
 	protected void sacar(float value) {
-		this.balance = (balance - value);
+		this.balance -= value;
 	}
 
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() + " [número=" + number + ", saldo=" + balance + ", cartao de crédito="
-				+ creditCard + "]";
+		return "\tConta"+ 
+			   " \n\n\tNúmero da conta: " + number + 
+			   " \n\tSaldo: " + balance + 
+			   " \n\tCartão de crédito: "+ creditCard +
+		       "\n";
 	}
 }

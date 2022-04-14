@@ -1,25 +1,33 @@
 package br.com.gama.wipro.entity;
 
+import java.util.Random;
+
 public class CreditCard {
 
 	private float balance;
-	private int number;
+	private String number;
 
-	public CreditCard(int number, float balance) {
-		this.number = number;
+	public CreditCard(float balance) {
+		this.number = generateNumber();
 		this.balance = balance;
 	}
 
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
 	public float getBalance() {
 		return balance;
 	}
-
+	
+	public String generateNumber() {
+		return "5502" + " " + new Random().nextInt(1000, 9999) 
+					  + " " + new Random().nextInt(1000, 9999) 
+				      + " " + new Random().nextInt(1000, 9999);
+	} 
+	
 	@Override
 	public String toString() {
-		return getClass().getSimpleName() + " [saldo=" + balance + ", número=" + number + "]";
+		return number;
 	}
 }

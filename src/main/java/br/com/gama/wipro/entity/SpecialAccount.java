@@ -19,4 +19,13 @@ public class SpecialAccount extends Account {
 			super.sacar(valor);
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return "\tConta Especial"+ 
+			   " \n\n\tNúmero da conta: " + number + 
+			   " \n\tSaldo: " + balance + 
+			   " \n\tCartão de crédito: "+ creditCard +
+			   "\n";
+	}
 }

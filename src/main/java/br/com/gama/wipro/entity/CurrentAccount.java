@@ -15,7 +15,7 @@ public class CurrentAccount extends Account {
 	
 	@Override
 	public String toString() {
-		return "\tConta Corrente"+ 
+		return "\n\tConta Corrente"+ 
 			   " \n\n\tNúmero da conta: " + number + 
 		       " \n\tSaldo: " + balance + 
 		       " \n\tCartão de crédito: "+ creditCard +

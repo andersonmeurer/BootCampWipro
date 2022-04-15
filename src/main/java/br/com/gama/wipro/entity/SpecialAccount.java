@@ -22,7 +22,7 @@ public class SpecialAccount extends Account {
 	
 	@Override
 	public String toString() {
-		return "\tConta Especial"+ 
+		return "\n\tConta Especial"+ 
 			   " \n\n\tNúmero da conta: " + number + 
 			   " \n\tSaldo: " + balance + 
 			   " \n\tCartão de crédito: "+ creditCard +

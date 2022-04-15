@@ -30,50 +30,50 @@ public class WiproApplication {
 					option = sc.nextInt();
 					switch (option) {
 					case 1:
-						System.out.println("Digite o número da conta:");
+						System.out.print("\tCriando conta corrente\n\n\tDigite o número da conta: ");
 						accountNumber = sc.nextInt();
 						if (accountManager.isExistAccountNumber(accountNumber)) {
 							System.out.println("Numero de conta já existe!\n\n\n");
 							sc.next();
 							continue;
 						}
-						System.out.println("Digite o saldo da conta:");
+						System.out.print("\n\tDigite o saldo da conta: ");
 						balance = sc.nextFloat();
 						CurrentAccount contaCorrente = new CurrentAccount(accountNumber, balance);
 						accountManager.createAccount(contaCorrente);
 						break;
 					case 2:
-						System.out.println("Digite o número da conta:");
+						System.out.print("\tCriando Conta Especial\n\n\tDigite o número da conta a ser criada: ");
 						accountNumber = sc.nextInt();
 						if (accountManager.isExistAccountNumber(accountNumber)) {
-							System.out.println("Numero de conta já existe!\n\n\n");
+							System.out.print("\n\tNumero de conta já existe!\n\n\n");
 							sc.next();
 							continue;
 						}
-						System.out.println("Digite o saldo da conta:");
+						System.out.print("\n\tDigite o saldo da conta: ");
 						balance = sc.nextFloat();
 						SpecialAccount contaEspecial = new SpecialAccount(accountNumber, balance);
 						accountManager.createAccount(contaEspecial);
 						break;
 					case 3:
-						System.out.println("Digite o número da conta:");
+						System.out.print("\tDigite o número da conta: ");
 						accountNumber = sc.nextInt();
 						accountManager.removeAccount(accountNumber);
 						break;
 					case 4:
-						System.out.println("Digite o número da conta:");
+						System.out.print("\tDigite o número da conta: ");
 						accountNumber = sc.nextInt();
 						accountManager.consultAccount(accountNumber);
 						break;
 					case 0:
-						System.out.println("Programa encerrado.");
+						System.out.print("\n\tPrograma encerrado.");
 						break;
 					default:
-						System.out.println("Opção inválida!");
+						System.out.print("\n\tOpção inválida!");
 					}
 
 				} catch (Exception e) {
-					System.out.println("Ocorreu um erro.");
+					System.out.print("\tOcorreu um erro.");
 					option = 0;
 				}
 
@@ -86,12 +86,12 @@ public class WiproApplication {
 	}
 
 	private void menu() {
-		System.out.println("Digite uma Opção\n" 
-							+ "1 - Criar Conta Corrente\n" 
-							+ "2 - Criar Conta Especial\n"
-							+ "3 - Apagar Conta\n" 
-							+ "4 - Consultar Conta\n" 
-							+ "0 - Encerrar Programa\n");
+		System.out.println("\tDigite um número para seguir com uma das opções:\n\n" 
+							+ "\t1 - Criar Conta Corrente\n" 
+							+ "\t2 - Criar Conta Especial\n"
+							+ "\t3 - Apagar Conta\n" 
+							+ "\t4 - Consultar Conta\n" 
+							+ "\t0 - Encerrar Programa\n");
 	}
 
 	private void print() {

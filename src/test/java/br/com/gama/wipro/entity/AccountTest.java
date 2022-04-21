@@ -4,20 +4,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import br.com.gama.wipro.entities.Account;
+import br.com.gama.wipro.entities.CreditCard;
+import br.com.gama.wipro.entities.CurrentAccount;
+
 class AccountTest {
 
 	@Test
 	void test() {
 		try {
-			Account account = new CurrentAccount(123, 500f);
-			assertEquals(123, account.getNumber());
-			assertEquals(500f, account.getBalance());
-			account.sacar(50);
-			assertEquals(450f, account.getBalance());
-			account.deposit(550);
-			assertEquals(1000, account.getBalance());
-			account.sacar(1000000);
-			assertEquals(1000, account.getBalance());
+			Account account = new CurrentAccount(null, 1500.0, new CreditCard(500.0));
+//			assertEquals(123, account.getNumber());
+			assertEquals(1500.0, account.getBalance());
+			account.withdraw(50.0);
+			assertEquals(1450.0, account.getBalance());
+			account.deposit(550.0);
+			assertEquals(2000.0, account.getBalance());
+			account.withdraw(1000.0);
+			assertEquals(1000.0, account.getBalance());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

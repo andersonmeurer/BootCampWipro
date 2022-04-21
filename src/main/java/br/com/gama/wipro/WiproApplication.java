@@ -3,8 +3,9 @@ package br.com.gama.wipro;
 import java.util.Scanner;
 
 import br.com.gama.wipro.console.AccountManager;
-import br.com.gama.wipro.entity.CurrentAccount;
-import br.com.gama.wipro.entity.SpecialAccount;
+import br.com.gama.wipro.entities.CreditCard;
+import br.com.gama.wipro.entities.CurrentAccount;
+import br.com.gama.wipro.entities.SpecialAccount;
 
 public class WiproApplication {
 
@@ -17,7 +18,7 @@ public class WiproApplication {
 
 		int option = Integer.MIN_VALUE;
 		int accountNumber;
-		float balance;
+		Double balance;
 
 		print();
 
@@ -38,8 +39,8 @@ public class WiproApplication {
 							continue;
 						}
 						System.out.print("\n\tDigite o saldo da conta: ");
-						balance = sc.nextFloat();
-						CurrentAccount contaCorrente = new CurrentAccount(accountNumber, balance);
+						balance = sc.nextDouble();
+						CurrentAccount contaCorrente = new CurrentAccount(accountNumber, balance, new CreditCard(balance));
 						accountManager.createAccount(contaCorrente);
 						break;
 					case 2:
@@ -51,8 +52,8 @@ public class WiproApplication {
 							continue;
 						}
 						System.out.print("\n\tDigite o saldo da conta: ");
-						balance = sc.nextFloat();
-						SpecialAccount contaEspecial = new SpecialAccount(accountNumber, balance);
+						balance = sc.nextDouble();
+						SpecialAccount contaEspecial = new SpecialAccount(accountNumber, balance, new CreditCard(balance));
 						accountManager.createAccount(contaEspecial);
 						break;
 					case 3:

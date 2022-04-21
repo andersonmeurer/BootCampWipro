@@ -3,7 +3,7 @@ package br.com.gama.wipro.console;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.gama.wipro.entity.Account;
+import br.com.gama.wipro.entities.Account;
 
 public class AccountManager {
 

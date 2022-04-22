@@ -24,15 +24,15 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		CreditCard cd1 = new CreditCard( 100.0 );
-//		CreditCard cd2 = new CreditCard( 100.0 );
-//		CreditCard cd3 = new CreditCard( 100.0 );
-//		
-//		creditCardRepository.saveAll(Arrays.asList(cd1, cd2, cd3));
+		CreditCard cd1 = new CreditCard( 100.0 );
+		CreditCard cd2 = new CreditCard( 100.0 );
+		CreditCard cd3 = new CreditCard( 100.0 );
 		
-		CurrentAccount ca1 = new CurrentAccount(null, 100.0, new CreditCard(1000.0));
-		CurrentAccount ca2 = new CurrentAccount(null, 100.0, new CreditCard(1000.0));
-		CurrentAccount ca3 = new CurrentAccount(null, 100.0, new CreditCard(1000.0));
+		creditCardRepository.saveAll(Arrays.asList(cd1, cd2, cd3));
+		
+		CurrentAccount ca1 = new CurrentAccount(null, 7654, 100.0, cd1);
+		CurrentAccount ca2 = new CurrentAccount(null, 3456, 100.0, cd2);
+		CurrentAccount ca3 = new CurrentAccount(null, 2345, 100.0, cd3);
 		
 		currentAccountRepository.saveAll(Arrays.asList(ca1, ca2, ca3));
 

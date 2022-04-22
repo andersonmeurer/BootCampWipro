@@ -1,10 +1,27 @@
 package br.com.gama.wipro.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_special_account")
 public class SpecialAccount extends Account {
 
-	private Double overdraftLimit;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
+	private Integer number;
 
-	public SpecialAccount(int number, Double balance, CreditCard creditCard) {
+	private Double overdraftLimit;
+	
+	public SpecialAccount() {
+	}
+	
+	public SpecialAccount(Integer id, Integer number, Double balance, CreditCard creditCard) {
 		super(number, balance, new CreditCard(balance));
 		
 		overdraftLimit = balance * 1.5;

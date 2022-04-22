@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "db_currentAccount")
+@Table(name = "tb_current_account")
 public class CurrentAccount extends Account implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -17,7 +17,11 @@ public class CurrentAccount extends Account implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer number;
-	public CurrentAccount(Integer number, Double balance, CreditCard creditCard) {
+	
+	public CurrentAccount() {
+	}
+	
+	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard) {
 		super(number, balance, creditCard);
 	}
 

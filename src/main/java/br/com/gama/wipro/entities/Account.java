@@ -10,9 +10,12 @@ public abstract class Account {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	protected Integer id;
+	
 	protected Integer number;
 
 	protected Double balance;
+	
 
 	@OneToOne
 	@JoinColumn(referencedColumnName = "id", name = "credit_card_id")
@@ -24,7 +27,11 @@ public abstract class Account {
 	public Account(Integer number, Double balance, CreditCard creditCard) {
 		this.number = number;
 		this.balance = balance;
-		this.creditCard = new CreditCard(balance);
+		this.creditCard = creditCard;
+	}
+	
+	public Integer getId() {
+		return id;
 	}
 
 	public Integer getNumber() {

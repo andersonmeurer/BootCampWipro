@@ -8,16 +8,18 @@ import org.springframework.stereotype.Service;
 
 import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.repositories.CurrentAccountRepository;
+import br.com.gama.wipro.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CurrentAccountService {
 
+	@Autowired
 	private CurrentAccountRepository repository;
 	
-	@Autowired
-	public CurrentAccountService(CurrentAccountRepository repository) {
-		this.repository = repository;
-	}
+	
+//	public CurrentAccountService(CurrentAccountRepository repository) {
+//		this.repository = repository;
+//	}
 	
 //	public Optional<CurrentAccount> get(Integer id) {
 //		return repository.findById(id);
@@ -27,8 +29,13 @@ public class CurrentAccountService {
 		return repository.findAll();
 	}
 
-	public Optional<CurrentAccount> findByNumber(String number) {
-		return repository.findByNumber(number);
+	public CurrentAccount findById (Integer id) {
+		Optional<CurrentAccount> obj = repository.findById(id);
+		return obj.orElseThrow(()-> new ResourceNotFoundException(id));
+
 	}
 
+	public CurrentAccount create(CurrentAccount obj) {
+		return repository.save(obj);
+	}
 }

@@ -35,8 +35,9 @@ public class TestConfig implements CommandLineRunner {
 		CreditCard cd4 = new CreditCard(100.0);
 		CreditCard cd5 = new CreditCard(100.0);
 		CreditCard cd6 = new CreditCard(100.0);
+		CreditCard cd7 = new CreditCard(100.0);
 
-		creditCardRepository.saveAll(Arrays.asList(cd1, cd2, cd3, cd4, cd5, cd6));
+		creditCardRepository.saveAll(Arrays.asList(cd1, cd2, cd3, cd4, cd5, cd6, cd7));
 
 		CurrentAccount ca1 = new CurrentAccount(ThreadLocalRandom.current().nextInt(1000, 9999), 300D, cd1);
 		CurrentAccount ca2 = new CurrentAccount(ThreadLocalRandom.current().nextInt(1000, 9999), 400D, cd2);

@@ -1,5 +1,6 @@
 package br.com.gama.wipro.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class CurrentAccountController {
 	@Autowired
 	public CurrentAccountController(CurrentAccountService service) {
 		this.service = service;
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<CurrentAccount>> findAll(){
+		List<CurrentAccount> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping("/{number}")

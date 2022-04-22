@@ -23,11 +23,12 @@ public class CurrentAccountService {
 //		return repository.findById(id);
 //	}
 //	
-//	public List<CurrentAccount> findAll(){
-//		return repository.findAll();
-//	}
+	public List<CurrentAccount> findAll(){
+		return repository.findAll();
+	}
 
 	public Optional<CurrentAccount> findByNumber(String number) {
 		return repository.findByNumber(number);
 	}
+
 }

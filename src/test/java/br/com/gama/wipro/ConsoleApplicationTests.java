@@ -9,5 +9,4 @@ class ConsoleApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

@@ -1,9 +1,14 @@
 package br.com.gama.wipro.repositories;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+
 import br.com.gama.wipro.entities.CreditCard;
 
-public interface CreditCardRepository extends JpaRepository<CreditCard, Integer>{
+public interface CreditCardRepository extends JpaRepository<CreditCard, Integer> {
+
+	Optional<List<CreditCard>> findByNumber(String number);
 
 }

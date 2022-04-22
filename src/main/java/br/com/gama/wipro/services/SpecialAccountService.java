@@ -7,27 +7,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.gama.wipro.entities.CurrentAccount;
-import br.com.gama.wipro.repositories.CurrentAccountRepository;
+import br.com.gama.wipro.entities.SpecialAccount;
+import br.com.gama.wipro.repositories.SpecialAccountRepository;
 
 @Service
-public class CurrentAccountService {
+public class SpecialAccountService {
 
-	private CurrentAccountRepository repository;
-	
+	private SpecialAccountRepository repository;
+
 	@Autowired
-	public CurrentAccountService(CurrentAccountRepository repository) {
+	public SpecialAccountService(SpecialAccountRepository repository) {
 		this.repository = repository;
 	}
-	
-//	public Optional<CurrentAccount> get(Integer id) {
+
+//	public Optional<SpecialAccount> get(Integer id) {
 //		return repository.findById(id);
 //	}
-//	
-//	public List<CurrentAccount> findAll(){
+//
+//	public List<SpecialAccount> findAll() {
 //		return repository.findAll();
 //	}
-
-	public Optional<CurrentAccount> findByNumber(String number) {
+	
+	public Optional<SpecialAccount> findByNumber(String number) {
 		return repository.findByNumber(number);
 	}
 }

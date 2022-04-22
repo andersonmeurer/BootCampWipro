@@ -2,7 +2,7 @@ package br.com.gama.wipro.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,9 +42,9 @@ public class CreditCard implements Serializable{
 	}
 	
 	public String generateNumber() {
-		return "5502" + " " + new Random().nextInt(1000, 9999) 
-					  + " " + new Random().nextInt(1000, 9999) 
-				      + " " + new Random().nextInt(1000, 9999);
+		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
+					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
+				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);
 	} 
 	
 	@Override

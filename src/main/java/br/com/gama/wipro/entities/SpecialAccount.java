@@ -10,19 +10,13 @@ import javax.persistence.Table;
 @Table(name = "tb_special_account")
 public class SpecialAccount extends Account {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
-	
-	private Integer number;
-
 	private Double overdraftLimit;
 	
 	public SpecialAccount() {
 	}
 	
-	public SpecialAccount(Integer id, Integer number, Double balance, CreditCard creditCard) {
-		super(number, balance, new CreditCard(balance));
+	public SpecialAccount(Integer number, Double balance, CreditCard creditCard) {
+		super(number, balance, creditCard);
 		
 		overdraftLimit = balance * 1.5;
 	}
@@ -36,14 +30,5 @@ public class SpecialAccount extends Account {
 		if ((overdraftLimit+ balance) >= value) {
 			super.withdraw(value);
 		}
-	}
-	
-	@Override
-	public String toString() {
-		return "\n\tConta Especial"+ 
-			   " \n\n\tNúmero da conta: " + number + 
-			   " \n\tSaldo: " + balance + 
-			   " \n\tCartão de crédito: "+ creditCard +
-			   "\n";
 	}
 }

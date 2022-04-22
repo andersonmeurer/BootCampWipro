@@ -7,13 +7,13 @@ import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.SpecialAccount;
 
-public class WiproApplication {
+public class ConsoleApplication {
 
 	public static void main(String[] args) {
-		new WiproApplication();
+		new ConsoleApplication();
 	}
 
-	public WiproApplication() {
+	public ConsoleApplication() {
 		AccountManager accountManager = new AccountManager();
 
 		int option = Integer.MIN_VALUE;

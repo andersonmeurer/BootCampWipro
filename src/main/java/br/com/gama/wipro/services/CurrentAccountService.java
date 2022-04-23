@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -13,6 +15,7 @@ import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.CurrentAccountRepository;
+import br.com.gama.wipro.services.exceptions.DatabaseException;
 import br.com.gama.wipro.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -20,24 +23,20 @@ public class CurrentAccountService {
 
 	private CurrentAccountRepository repository;
 	private CreditCardRepository creditCardRepository;
-	
+
 	@Autowired
-	public CurrentAccountService(CurrentAccountRepository repository,CreditCardRepository creditCardRepository) {
+	public CurrentAccountService(CurrentAccountRepository repository, CreditCardRepository creditCardRepository) {
 		this.repository = repository;
 		this.creditCardRepository = creditCardRepository;
 	}
-	
-//	public Optional<CurrentAccount> get(Integer id) {
-//		return repository.findById(id);
-//	}
-//	
-	public List<CurrentAccount> findAll(){
+
+	public List<CurrentAccount> findAll() {
 		return repository.findAll();
 	}
 
-	public CurrentAccount findById (Integer id) {
+	public CurrentAccount findById(Integer id) {
 		Optional<CurrentAccount> obj = repository.findById(id);
-		return obj.orElseThrow(()-> new ResourceNotFoundException(id));
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 
 	public CurrentAccount create(CurrentDto obj) {
@@ -49,12 +48,12 @@ public class CurrentAccountService {
 			obj.setNumber(ThreadLocalRandom.current().nextInt(1000, 9999));
 		}
 
-		//próxima sprint
-		//validar se numero da conta já existe 
+		// próxima sprint
+		// validar se numero da conta já existe
 
-		CurrentAccount c = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc);
+		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc);
 
-		return repository.save(c);
+		return repository.save(current);
 	}
 
 	public Optional<CurrentAccount> update(Integer id, CurrentDto obj) {
@@ -70,5 +69,15 @@ public class CurrentAccountService {
 			return Optional.of(repository.save(objOrigin));
 		}
 		return Optional.empty();
+	}
+
+	public void delete(Integer id) {
+		try {
+			repository.deleteById(id);
+		} catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new DatabaseException(e.getMessage());
+		}
 	}
 }

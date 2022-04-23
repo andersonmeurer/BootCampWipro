@@ -4,7 +4,17 @@ public class CreditCardDto {
 
 	private Double balance;
 
+	private String number;
+
 	public CreditCardDto() {
+	}
+
+	public String getNumber() {
+		return this.number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public CreditCardDto(Double balance) {

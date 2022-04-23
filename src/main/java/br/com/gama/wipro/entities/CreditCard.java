@@ -52,11 +52,15 @@ public class CreditCard implements Serializable{
 		return number;
 	}
 
+	public void setNumber(String number) {
+		this.number = number;
+	}
+
 	public Double getBalance() {
 		return balance;
 	}
-	
-	private String generateNumber() {
+
+	public String generateNumber() {
 		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);

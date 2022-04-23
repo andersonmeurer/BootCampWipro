@@ -41,7 +41,7 @@ public class CurrentAccountService {
 
 	public CurrentAccount create(CurrentDto obj) {
 
-		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance());
+		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance(), obj.getCreditCard().getNumber());
 		creditCardRepository.save(cc);
 
 		if (obj.getNumber() == null) {

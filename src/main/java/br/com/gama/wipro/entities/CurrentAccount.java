@@ -27,10 +27,18 @@ public class CurrentAccount extends Account {
 
 	@Override
 	public String toString() {
-		return "\n\tConta Corrente"+ 
-			   "\n\n\tNúmero da conta: " + number + 
-		       "\n\tSaldo: " + balance + 
-		       "\n\tCartão de crédito: "+ creditCard +
-	           "\n";
+		return "CurrentAccount [id=" + this.id + ", number=" + this.number + ", balance=" + this.balance
+				+ ", creditCard=" + this.creditCard + "]";
 	}
+
+//	@Override
+//	public String toString() {
+//		return "\n\tConta Corrente"+ 
+//			   "\n\n\tNúmero da conta: " + number + 
+//		       "\n\tSaldo: " + balance + 
+//		       "\n\tCartão de crédito: "+ creditCard +
+//	           "\n";
+//	}
+	
+	
 }

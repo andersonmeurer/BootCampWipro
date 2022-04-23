@@ -1,7 +1,5 @@
 package br.com.gama.wipro.entities;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -10,6 +8,10 @@ import javax.persistence.Table;
 public class CurrentAccount extends Account {
 
 	public CurrentAccount() {
+	}
+
+	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard) {
+		super(id, number, balance, creditCard);
 	}
 
 	public CurrentAccount(Integer number, Double balance, CreditCard creditCard) {

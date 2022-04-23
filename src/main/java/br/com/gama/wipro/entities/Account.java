@@ -31,8 +31,19 @@ public abstract class Account {
 		this.creditCard = creditCard;
 	}
 
+	public Account(Integer id, Integer number, Double balance, CreditCard creditCard) {
+		this.id = id;
+		this.number = number;
+		this.balance = balance;
+		this.creditCard = creditCard;
+	}
+
 	public Integer getId() {
 		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Integer getNumber() {
@@ -55,12 +66,12 @@ public abstract class Account {
 		this.balance -= value;
 	}
 
-	@Override
-	public String toString() {
-		return getClass().getSimpleName() + 
-			   "\n\n\tNúmero da conta: " + number + 
-			   "\n\tSaldo: " + balance + 
-			   "\n\tCartão de crédito: "+ creditCard +
-			   "\n";
-	}
+//	@Override
+//	public String toString() {
+//		return getClass().getSimpleName() + 
+//			   "\n\n\tNúmero da conta: " + number + 
+//			   "\n\tSaldo: " + balance + 
+//			   "\n\tCartão de crédito: "+ creditCard +
+//			   "\n";
+//	}
 }

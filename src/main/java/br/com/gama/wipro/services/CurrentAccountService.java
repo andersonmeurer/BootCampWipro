@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
@@ -37,7 +38,6 @@ public class CurrentAccountService {
 	public CurrentAccount findById (Integer id) {
 		Optional<CurrentAccount> obj = repository.findById(id);
 		return obj.orElseThrow(()-> new ResourceNotFoundException(id));
-
 	}
 
 	public CurrentAccount create(CurrentDto obj) {
@@ -55,5 +55,20 @@ public class CurrentAccountService {
 		CurrentAccount c = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc);
 
 		return repository.save(c);
+	}
+
+	public Optional<CurrentAccount> update(Integer id, CurrentDto obj) {
+		Optional<CurrentAccount> OObjOrigin = repository.findById(id);
+		if (OObjOrigin.isPresent()) {
+			CurrentAccount objOrigin = OObjOrigin.get();
+			if (obj.getDeposit() > 0) {
+				objOrigin.deposit(obj.getDeposit());
+			}
+			if (obj.getWithdraw() > 0) {
+				objOrigin.withdraw(obj.getWithdraw());
+			}
+			return Optional.of(repository.save(objOrigin));
+		}
+		return Optional.empty();
 	}
 }

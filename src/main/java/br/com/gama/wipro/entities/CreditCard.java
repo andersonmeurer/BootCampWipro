@@ -33,6 +33,17 @@ public class CreditCard implements Serializable{
 		this.balance = balance;
 	}
 
+	public CreditCard(Double balance, String number) {
+		this.number = number;
+		this.balance = balance;
+	}
+
+	public CreditCard(Integer id, Double balance, String number) {
+		this.id = id;
+		this.number = number;
+		this.balance = balance;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -50,26 +61,26 @@ public class CreditCard implements Serializable{
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);
 	} 
-	
+
+	@Override
+	public String toString() {
+		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + "]";
+	}
+
 //	@Override
-//	public String toString() {
-//		return number;
+//	public int hashCode() {
+//		return Objects.hash(id, number);
 //	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, number);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CreditCard other = (CreditCard) obj;
-		return Objects.equals(id, other.id) && Objects.equals(number, other.number);
-	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		CreditCard other = (CreditCard) obj;
+//		return Objects.equals(id, other.id) && Objects.equals(number, other.number);
+//	}
 }

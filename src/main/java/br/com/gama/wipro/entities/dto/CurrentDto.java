@@ -4,9 +4,18 @@ public class CurrentDto {
 
 	private Integer number;
 
+	private Double withdraw;
+
+	private Double deposit;
+
 	private Double balance;
 
 	private CreditCardDto creditCard;
+
+	public CurrentDto() {
+		this.withdraw = 0D;
+		this.deposit = 0D;
+	}
 
 	public CurrentDto(Integer number, Double balance) {
 		this.number = number;
@@ -31,5 +40,13 @@ public class CurrentDto {
 
 	public CreditCardDto getCreditCard() {
 		return this.creditCard;
+	}
+
+	public Double getDeposit() {
+		return this.deposit;
+	}
+
+	public Double getWithdraw() {
+		return this.withdraw;
 	}
 }

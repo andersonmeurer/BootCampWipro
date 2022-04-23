@@ -1,5 +1,7 @@
 package br.com.gama.wipro.entities;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 

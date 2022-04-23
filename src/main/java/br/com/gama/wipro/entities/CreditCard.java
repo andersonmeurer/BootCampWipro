@@ -33,6 +33,10 @@ public class CreditCard implements Serializable{
 		this.balance = balance;
 	}
 
+	public Integer getId() {
+		return this.id;
+	}
+
 	public String getNumber() {
 		return number;
 	}
@@ -41,16 +45,16 @@ public class CreditCard implements Serializable{
 		return balance;
 	}
 	
-	public String generateNumber() {
+	private String generateNumber() {
 		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);
 	} 
 	
-	@Override
-	public String toString() {
-		return number;
-	}
+//	@Override
+//	public String toString() {
+//		return number;
+//	}
 
 	@Override
 	public int hashCode() {

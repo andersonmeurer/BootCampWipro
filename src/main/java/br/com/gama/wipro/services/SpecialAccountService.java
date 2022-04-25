@@ -10,9 +10,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import br.com.gama.wipro.entities.CreditCard;
-import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.SpecialAccount;
-import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.entities.dto.SpecialDto;
 import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.SpecialAccountRepository;

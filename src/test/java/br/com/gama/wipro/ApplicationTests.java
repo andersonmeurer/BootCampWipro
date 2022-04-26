@@ -45,7 +45,7 @@ class ApplicationTests {
 		try {
 			String msg = this.restTemplate.getForObject(URL + "1", String.class);
 			CurrentAccount currentAccount = new Gson().fromJson(msg, CurrentAccount.class);
-			CurrentAccount expected = new CurrentAccount(1, currentAccount.getNumber(), 300.0, new CreditCard(1, 100.0, currentAccount.getCreditCard().getNumber()));
+			CurrentAccount expected = new CurrentAccount(1, currentAccount.getNumber(), 300.0, new CreditCard(1, 100.0, currentAccount.getCreditCard().getNumber()), true);
 
 			assertEquals(expected.toString(), currentAccount.toString());
 		} catch (Exception e) {

@@ -25,23 +25,29 @@ public class CreditCard implements Serializable{
 	
 	private String number;
 	
+	private Boolean active;
+	
 	public CreditCard () {
+		this.active = true;
 	}
 
 	public CreditCard(Double balance) {
 		this.number = generateNumber();
 		this.balance = balance;
+		this.active = true;
 	}
 
 	public CreditCard(Double balance, String number) {
 		this.number = number;
 		this.balance = balance;
+		this.active = true;
 	}
 
 	public CreditCard(Integer id, Double balance, String number) {
 		this.id = id;
 		this.number = number;
 		this.balance = balance;
+		this.active = true;
 	}
 
 	public Integer getId() {
@@ -60,6 +66,14 @@ public class CreditCard implements Serializable{
 		return balance;
 	}
 
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
 	public String generateNumber() {
 		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
@@ -68,7 +82,7 @@ public class CreditCard implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + "]";
+		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + ", active= " + this.active +"]";
 	}
 
 //	@Override

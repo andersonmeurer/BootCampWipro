@@ -15,8 +15,14 @@ public class SpecialAccount extends Account {
 	public SpecialAccount() {
 	}
 	
+	public SpecialAccount(Integer number, Double balance, CreditCard creditCard, Boolean active) {
+		super(number, balance, creditCard, active);
+		
+		overdraftLimit = balance * 1.5;
+	}
+
 	public SpecialAccount(Integer number, Double balance, CreditCard creditCard) {
-		super(number, balance, creditCard);
+		super(number, balance, creditCard, true);
 		
 		overdraftLimit = balance * 1.5;
 	}

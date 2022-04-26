@@ -40,7 +40,7 @@ public class ConsoleApplication {
 						}
 						System.out.print("\n\tDigite o saldo da conta: ");
 						balance = sc.nextDouble();
-						CurrentAccount contaCorrente = new CurrentAccount(accountNumber, balance, new CreditCard(balance));
+						CurrentAccount contaCorrente = new CurrentAccount(accountNumber, balance, new CreditCard(balance), true);
 						accountManager.createAccount(contaCorrente);
 						break;
 					case 2:
@@ -53,7 +53,7 @@ public class ConsoleApplication {
 						}
 						System.out.print("\n\tDigite o saldo da conta: ");
 						balance = sc.nextDouble();
-						SpecialAccount contaEspecial = new SpecialAccount(accountNumber, balance, new CreditCard(balance));
+						SpecialAccount contaEspecial = new SpecialAccount(accountNumber, balance, new CreditCard(balance), true);
 						accountManager.createAccount(contaEspecial);
 						break;
 					case 3:

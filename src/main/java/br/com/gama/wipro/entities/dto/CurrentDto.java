@@ -9,17 +9,21 @@ public class CurrentDto {
 	private Double deposit;
 
 	private Double balance;
+	
+	private Boolean active;
 
 	private CreditCardDto creditCard;
 
 	public CurrentDto() {
 		this.withdraw = 0D;
 		this.deposit = 0D;
+		this.active = true;
 	}
 
 	public CurrentDto(Integer number, Double balance) {
 		this.number = number;
 		this.balance = balance;
+		this.active = true;
 	}
 
 	public Integer getNumber() {
@@ -48,5 +52,13 @@ public class CurrentDto {
 
 	public Double getWithdraw() {
 		return this.withdraw;
+	}
+	
+	public Boolean getActive () {
+		return this.active;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

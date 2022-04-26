@@ -9,6 +9,8 @@ public class SpecialDto {
 	private Double deposit;
 
 	private Double balance;
+	
+	private Boolean active;
 
 	private CreditCardDto creditCard;
 
@@ -48,5 +50,13 @@ public class SpecialDto {
 
 	public Double getWithdraw() {
 		return this.withdraw;
+	}
+	
+	public Boolean getActive () {
+		return this.active;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 }

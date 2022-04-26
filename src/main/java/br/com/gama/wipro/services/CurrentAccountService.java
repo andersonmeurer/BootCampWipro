@@ -51,7 +51,7 @@ public class CurrentAccountService {
 		// próxima sprint
 		// validar se numero da conta já existe
 
-		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc);
+		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc, obj.getActive());
 
 		return repository.save(current);
 	}
@@ -71,13 +71,15 @@ public class CurrentAccountService {
 		return Optional.empty();
 	}
 
-	public void delete(Integer id) {
-		try {
-			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException(e.getMessage());
+	public Optional<CurrentAccount> deactivate(Integer id, CurrentDto obj) {
+		Optional<CurrentAccount> oObjOrigin = repository.findById(id);
+
+		if (oObjOrigin.isPresent()) {
+			CurrentAccount objOrigin = oObjOrigin.get();
+			objOrigin.getCreditCard().setActive(obj.getActive());
+			objOrigin.setActive(obj.getActive());
+			return Optional.of(repository.save(objOrigin));
 		}
+		return Optional.empty();
 	}
 }

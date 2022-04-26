@@ -17,6 +17,8 @@ public abstract class Account {
 	protected Integer number;
 
 	protected Double balance;
+	
+	protected Boolean active;
 
 	@OneToOne
 	@JoinColumn(referencedColumnName = "id", name = "credit_card_id")
@@ -25,17 +27,19 @@ public abstract class Account {
 	public Account() {
 	}
 
-	public Account(Integer number, Double balance, CreditCard creditCard) {
+	public Account(Integer number, Double balance, CreditCard creditCard, Boolean active) {
 		this.number = number;
 		this.balance = balance;
 		this.creditCard = creditCard;
+		this.active = active;
 	}
 
-	public Account(Integer id, Integer number, Double balance, CreditCard creditCard) {
+	public Account(Integer id, Integer number, Double balance, CreditCard creditCard, Boolean active) {
 		this.id = id;
 		this.number = number;
 		this.balance = balance;
 		this.creditCard = creditCard;
+		this.active = active;
 	}
 
 	public Integer getId() {
@@ -64,6 +68,14 @@ public abstract class Account {
 
 	public void withdraw(Double value) {
 		this.balance -= value;
+	}
+	
+	public Boolean getActive () {
+		return this.active;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 //	@Override

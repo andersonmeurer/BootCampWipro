@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.SpecialAccount;
+import br.com.gama.wipro.entities.SpecialAccount;
+import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.entities.dto.SpecialDto;
 import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.SpecialAccountRepository;
@@ -50,7 +52,7 @@ public class SpecialAccountService {
 		// próxima sprint
 		// validar se numero da conta já existe
 
-		SpecialAccount special = new SpecialAccount(obj.getNumber(), obj.getBalance(), cc);
+		SpecialAccount special = new SpecialAccount(obj.getNumber(), obj.getBalance(), cc, obj.getActive());
 
 		return repository.save(special);
 	}
@@ -70,14 +72,16 @@ public class SpecialAccountService {
 		return Optional.empty();
 	}
 
-	public void delete(Integer id) {
-		try {
-			repository.deleteById(id);
-		} catch (EmptyResultDataAccessException e) {
-			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException(e.getMessage());
+	public Optional<SpecialAccount> deactivate(Integer id, CurrentDto obj) {
+		Optional<SpecialAccount> oObjOrigin = repository.findById(id);
+
+		if (oObjOrigin.isPresent()) {
+			SpecialAccount objOrigin = oObjOrigin.get();
+			objOrigin.getCreditCard().setActive(obj.getActive());
+			objOrigin.setActive(obj.getActive());
+			return Optional.of(repository.save(objOrigin));
 		}
+		return Optional.empty();
 	}
 
 }

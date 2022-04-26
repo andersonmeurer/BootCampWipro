@@ -10,12 +10,16 @@ public class CurrentAccount extends Account {
 	public CurrentAccount() {
 	}
 
-	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard) {
-		super(id, number, balance, creditCard);
+	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard, Boolean active) {
+		super(id, number, balance, creditCard, active);
 	}
 
+	public CurrentAccount(Integer number, Double balance, CreditCard creditCard, Boolean active) {
+		super(number, balance, creditCard, active);
+	}
+	
 	public CurrentAccount(Integer number, Double balance, CreditCard creditCard) {
-		super(number, balance, creditCard);
+		super(number, balance, creditCard, true);
 	}
 
 	@Override
@@ -27,9 +31,10 @@ public class CurrentAccount extends Account {
 
 	@Override
 	public String toString() {
-		return "CurrentAccount [id=" + this.id + ", number=" + this.number + ", balance=" + this.balance
-				+ ", creditCard=" + this.creditCard + "]";
+		return "CurrentAccount [id= " + this.id + ", number= " + this.number + ", balance= " + this.balance
+				+ ", creditCard= " + this.creditCard + "active= " + this.active +"]";
 	}
+	
 
 //	@Override
 //	public String toString() {

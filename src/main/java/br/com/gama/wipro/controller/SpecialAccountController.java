@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.SpecialAccount;
+import br.com.gama.wipro.entities.SpecialAccount;
+import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.entities.dto.SpecialDto;
 import br.com.gama.wipro.services.SpecialAccountService;
 import br.com.gama.wipro.services.exceptions.ResourceNotFoundException;
@@ -57,8 +58,8 @@ public class SpecialAccountController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<CurrentAccount> delete(@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
+	public SpecialAccount deactivate(@PathVariable Integer id, @RequestBody CurrentDto obj) {
+		Optional<SpecialAccount> response = service.deactivate(id, obj);
+		return response.orElseThrow(()-> new ResourceNotFoundException(id));		
 	}
 }

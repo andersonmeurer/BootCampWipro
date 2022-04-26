@@ -56,8 +56,8 @@ public class CurrentAccountController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<CurrentAccount> delete(@PathVariable Integer id){
-		service.delete(id);
-		return ResponseEntity.noContent().build();
+	public CurrentAccount deactivate(@PathVariable Integer id, @RequestBody CurrentDto obj) {
+		Optional<CurrentAccount> response = service.deactivate(id, obj);
+		return response.orElseThrow(()-> new ResourceNotFoundException(id));		
 	}
 }

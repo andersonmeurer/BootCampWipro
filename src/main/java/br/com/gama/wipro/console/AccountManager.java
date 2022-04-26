@@ -1,29 +1,28 @@
 package br.com.gama.wipro.console;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import br.com.gama.wipro.entity.Account;
+import br.com.gama.wipro.entities.Account;
 
 public class AccountManager {
 
 	private List<Account> accounts;
 
-	public AccountManager(List<Account> accounts) {
-		super();
-		this.accounts = accounts;
+	public AccountManager() {
+		this.accounts = new ArrayList<>();
 	}
 
 	public void createAccount(Account account) {
 		this.accounts.add(account);
 		System.out.println(account);
-
 	}
 
-	public void removeAccount(Integer number) {
+	public void removeAccount(int number) {
 
 		int index = 0;
 		boolean contaEncontrada = false;
-		
+
 		for (Account account : accounts) {
 			if (account.getNumber() == number) {
 				contaEncontrada = true;
@@ -33,19 +32,18 @@ public class AccountManager {
 				break;
 			}
 		}
-		
+
 		if (!contaEncontrada) {
 			System.out.println("Conta não encontrada");
 		}
-
 	}
 
-	public void getAccount(Integer number) {
+	public void consultAccount(int find) {
 
 		boolean contaEncontrada = false;
 
 		for (Account account : accounts) {
-			if (account.getNumber() == number) {
+			if (account.getNumber() == find) {
 				contaEncontrada = true;
 				System.out.println(account.toString());
 				break;
@@ -55,7 +53,14 @@ public class AccountManager {
 		if (!contaEncontrada) {
 			System.out.println("Conta não encontrada");
 		}
-
 	}
 
+	public boolean isExistAccountNumber(int accountNumber) {
+		for (Account account : accounts) {
+			if (account.getNumber() == accountNumber) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

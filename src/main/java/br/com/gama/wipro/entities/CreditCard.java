@@ -1,7 +1,6 @@
 package br.com.gama.wipro.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Entity;
@@ -74,31 +73,16 @@ public class CreditCard implements Serializable{
 		this.active = active;
 	}
 
-	public String generateNumber() {
+	public static String generateNumber() {
 		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);
-	} 
+	}
 
 	@Override
 	public String toString() {
-		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + ", active= " + this.active +"]";
+		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + ", active="
+				+ this.active + "]";
 	}
 
-//	@Override
-//	public int hashCode() {
-//		return Objects.hash(id, number);
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		CreditCard other = (CreditCard) obj;
-//		return Objects.equals(id, other.id) && Objects.equals(number, other.number);
-//	}
 }

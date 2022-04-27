@@ -71,13 +71,25 @@ public class CurrentAccountService {
 		return Optional.empty();
 	}
 
-	public Optional<CurrentAccount> deactivate(Integer id, CurrentDto obj) {
+//	public Optional<CurrentAccount> deactivate(Integer id, CurrentDto obj) {
+//		Optional<CurrentAccount> oObjOrigin = repository.findById(id);
+//
+//		if (oObjOrigin.isPresent()) {
+//			CurrentAccount objOrigin = oObjOrigin.get();
+//			objOrigin.getCreditCard().setActive(obj.getActive());
+//			objOrigin.setActive(obj.getActive());
+//			return Optional.of(repository.save(objOrigin));
+//		}
+//		return Optional.empty();
+//	}
+	
+	public Optional<CurrentAccount> deactivate(Integer id) {
 		Optional<CurrentAccount> oObjOrigin = repository.findById(id);
 
 		if (oObjOrigin.isPresent()) {
 			CurrentAccount objOrigin = oObjOrigin.get();
-			objOrigin.getCreditCard().setActive(obj.getActive());
-			objOrigin.setActive(obj.getActive());
+			objOrigin.getCreditCard().setActive(false);
+			objOrigin.setActive(false);
 			return Optional.of(repository.save(objOrigin));
 		}
 		return Optional.empty();

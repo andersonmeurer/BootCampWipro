@@ -1,4 +1,4 @@
-package br.com.gama.wipro.entity;
+package br.com.gama.wipro.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 

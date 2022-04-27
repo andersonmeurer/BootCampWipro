@@ -1,6 +1,7 @@
 package br.com.gama.wipro.entities;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Entity;
@@ -81,8 +82,6 @@ public class CreditCard implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + ", active="
-				+ this.active + "]";
+		return "CreditCard [id=" + this.id + ", balance=" + this.balance + ", number=" + this.number + ", active= " + this.active +"]";
 	}
-
 }

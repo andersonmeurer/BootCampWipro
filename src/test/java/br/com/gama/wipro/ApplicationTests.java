@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
@@ -25,7 +23,6 @@ import com.google.gson.Gson;
 
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
-import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.services.CurrentAccountService;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)

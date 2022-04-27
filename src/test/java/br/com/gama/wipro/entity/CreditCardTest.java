@@ -12,7 +12,7 @@ class CreditCardTest {
 	@Test
 	void testCreditCard() {
 		try {
-			CreditCard creditCard = new CreditCard(123.0, CreditCard.generateNumber());
+			CreditCard creditCard = new CreditCard(123.0);
 			assertEquals(123, creditCard.getBalance());
 		} catch (Exception e) {
 			fail(e.getMessage());

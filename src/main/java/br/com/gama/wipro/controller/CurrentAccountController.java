@@ -54,17 +54,10 @@ public class CurrentAccountController {
 		Optional<CurrentAccount> response = service.update(id, obj);
 		return response.orElseThrow(()-> new ResourceNotFoundException(id));
 	}
-	
-//	@DeleteMapping("/{id}")
-//	public CurrentAccount deactivate(@PathVariable Integer id, @RequestBody CurrentDto obj) {
-//		Optional<CurrentAccount> response = service.deactivate(id, obj);
-//		return response.orElseThrow(()-> new ResourceNotFoundException(id));		
-//	}
-	
+
 	@DeleteMapping("/{id}")
 	public CurrentAccount deactivate(@PathVariable Integer id) {
 		Optional<CurrentAccount> response = service.deactivate(id);
 		return response.orElseThrow(()-> new ResourceNotFoundException(id));		
 	}
-
 }

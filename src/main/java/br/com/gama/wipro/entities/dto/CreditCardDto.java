@@ -7,6 +7,8 @@ public class CreditCardDto {
 	private String number;
 
 	public CreditCardDto() {
+		balance = 0.0;
+		number = "";
 	}
 
 	public String getNumber() {

@@ -42,7 +42,7 @@ public class SpecialAccountService {
 
 	public SpecialAccount create(SpecialDto obj) {
 
-		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance());
+		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance(), CreditCard.generateNumber());
 		creditCardRepository.save(cc);
 
 		if (obj.getNumber() == null) {

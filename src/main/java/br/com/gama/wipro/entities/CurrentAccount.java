@@ -8,6 +8,7 @@ import javax.persistence.Table;
 public class CurrentAccount extends Account {
 
 	public CurrentAccount() {
+		this.active = true;
 	}
 
 	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard, Boolean active) {
@@ -34,16 +35,4 @@ public class CurrentAccount extends Account {
 		return "CurrentAccount [id= " + this.id + ", number= " + this.number + ", balance= " + this.balance
 				+ ", creditCard= " + this.creditCard + "active= " + this.active +"]";
 	}
-	
-
-//	@Override
-//	public String toString() {
-//		return "\n\tConta Corrente"+ 
-//			   "\n\n\tNúmero da conta: " + number + 
-//		       "\n\tSaldo: " + balance + 
-//		       "\n\tCartão de crédito: "+ creditCard +
-//	           "\n";
-//	}
-	
-	
 }

@@ -5,17 +5,13 @@ import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
 
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.CurrentAccountRepository;
-import br.com.gama.wipro.services.exceptions.DatabaseException;
 import br.com.gama.wipro.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -71,13 +67,13 @@ public class CurrentAccountService {
 		return Optional.empty();
 	}
 
-	public Optional<CurrentAccount> deactivate(Integer id, CurrentDto obj) {
+	public Optional<CurrentAccount> deactivate(Integer id) {
 		Optional<CurrentAccount> oObjOrigin = repository.findById(id);
 
 		if (oObjOrigin.isPresent()) {
 			CurrentAccount objOrigin = oObjOrigin.get();
-			objOrigin.getCreditCard().setActive(obj.getActive());
-			objOrigin.setActive(obj.getActive());
+			objOrigin.getCreditCard().setActive(false);
+			objOrigin.setActive(false);
 			return Optional.of(repository.save(objOrigin));
 		}
 		return Optional.empty();

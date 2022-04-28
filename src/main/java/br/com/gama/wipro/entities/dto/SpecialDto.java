@@ -15,13 +15,19 @@ public class SpecialDto {
 	private CreditCardDto creditCard;
 
 	public SpecialDto() {
+		this.creditCard = new CreditCardDto();
 		this.withdraw = 0D;
 		this.deposit = 0D;
+		this.active = true;
 	}
 
 	public SpecialDto(Integer number, Double balance) {
+		this.creditCard = new CreditCardDto();
 		this.number = number;
 		this.balance = balance;
+		this.active = true;
+		this.withdraw = 0D;
+		this.deposit = 0D;
 	}
 
 	public Integer getNumber() {

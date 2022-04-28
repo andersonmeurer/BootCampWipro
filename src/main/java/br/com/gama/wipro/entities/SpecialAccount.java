@@ -13,6 +13,7 @@ public class SpecialAccount extends Account {
 	private Double overdraftLimit;
 	
 	public SpecialAccount() {
+		this.active = true;
 	}
 	
 	public SpecialAccount(Integer number, Double balance, CreditCard creditCard, Boolean active) {

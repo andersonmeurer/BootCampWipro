@@ -17,7 +17,7 @@ public abstract class Account {
 	protected Integer number;
 
 	protected Double balance;
-	
+
 	protected Boolean active;
 
 	@OneToOne
@@ -25,6 +25,7 @@ public abstract class Account {
 	protected CreditCard creditCard;
 
 	public Account() {
+		this.active = true;
 	}
 
 	public Account(Integer number, Double balance, CreditCard creditCard, Boolean active) {
@@ -77,13 +78,4 @@ public abstract class Account {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-
-//	@Override
-//	public String toString() {
-//		return getClass().getSimpleName() + 
-//			   "\n\n\tNúmero da conta: " + number + 
-//			   "\n\tSaldo: " + balance + 
-//			   "\n\tCartão de crédito: "+ creditCard +
-//			   "\n";
-//	}
 }

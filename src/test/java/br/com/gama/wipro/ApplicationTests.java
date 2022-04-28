@@ -81,7 +81,6 @@ class ApplicationTests {
 		}
 	}
 
-
 	@Order(3)
 	@Test
 	public void deleteCurrentAccount() {
@@ -118,4 +117,26 @@ class ApplicationTests {
 			fail(e.getMessage());
 		}
 	}
+
+//	@Test
+//	public void criarCurrentAccount() {
+//		try {
+//			URI uri = new URI(URL);
+//
+//			String numberCreditCard = new CreditCard().generateNumber();//apenas para gerar o numero
+//			CurrentAccount newCurrentAccount = new CurrentAccount(0, 9999, 1000D, new CreditCard(0, 2500D, numberCreditCard));
+//			HttpHeaders headers = new HttpHeaders();
+//			headers.set("X-COM-PERSIST", "true");
+//			HttpEntity<CurrentAccount> request = new HttpEntity<>(newCurrentAccount, headers);
+//			ResponseEntity<String> result = this.restTemplate.postForEntity(uri, request, String.class);
+//			assertEquals(201, result.getStatusCodeValue());
+//
+//			String json = "{\"id\":4,\"number\":9999.0,\"balance\":1000.0,\"creditCard\":{\"id\":8,\"balance\":2500.0,\"number\":\"" + numberCreditCard + "\"}}";
+//			CurrentAccount expected = new Gson().fromJson(json, CurrentAccount.class);
+//			CurrentAccount resultOjb = new Gson().fromJson(result.getBody(), CurrentAccount.class);
+//			assertEquals(expected.toString(), resultOjb.toString());
+//		} catch (Exception e) {
+//			fail(e.getMessage());
+//		}
+//	}
 }

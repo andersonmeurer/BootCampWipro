@@ -32,7 +32,7 @@ public class CurrentAccount extends Account {
 
 	@Override
 	public String toString() {
-		return "CurrentAccount [id=" + this.id + ", number=" + this.number + ", balance=" + this.balance + ", active="
-				+ this.active + ", creditCard=" + this.creditCard + "]";
+		return "CurrentAccount [id= " + this.id + ", number= " + this.number + ", balance= " + this.balance
+				+ ", creditCard= " + this.creditCard + "active= " + this.active +"]";
 	}
 }

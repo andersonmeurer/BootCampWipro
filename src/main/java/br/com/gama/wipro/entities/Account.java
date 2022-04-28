@@ -18,7 +18,7 @@ public abstract class Account {
 
 	protected Double balance;
 
-  protected Boolean active;
+	protected Boolean active;
 
 	@OneToOne
 	@JoinColumn(referencedColumnName = "id", name = "credit_card_id")
@@ -43,9 +43,9 @@ public abstract class Account {
 		this.active = active;
 	}
 
-//	public Integer getId() {
-//		return this.id;
-//	}
+	public Integer getId() {
+		return this.id;
+	}
 
 	public void setId(Integer id) {
 		this.id = id;

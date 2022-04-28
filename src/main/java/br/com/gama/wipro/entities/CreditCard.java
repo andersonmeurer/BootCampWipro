@@ -1,7 +1,6 @@
 package br.com.gama.wipro.entities;
 
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.persistence.Entity;
@@ -78,7 +77,7 @@ public class CreditCard implements Serializable{
 		return "5502" + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 					  + " " + ThreadLocalRandom.current().nextInt(1000, 9999) 
 				      + " " + ThreadLocalRandom.current().nextInt(1000, 9999);
-	}
+	} 
 
 	@Override
 	public String toString() {

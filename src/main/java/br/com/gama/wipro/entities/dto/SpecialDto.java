@@ -26,6 +26,8 @@ public class SpecialDto {
 		this.number = number;
 		this.balance = balance;
 		this.active = true;
+		this.withdraw = 0D;
+		this.deposit = 0D;
 	}
 
 	public Integer getNumber() {

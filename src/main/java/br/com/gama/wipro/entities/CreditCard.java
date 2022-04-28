@@ -58,9 +58,9 @@ public class CreditCard implements Serializable{
 		return number;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
+//	public void setNumber(String number) {
+//		this.number = number;
+//	}
 
 	public Double getBalance() {
 		return balance;

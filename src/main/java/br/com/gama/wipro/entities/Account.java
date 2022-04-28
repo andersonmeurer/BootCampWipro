@@ -47,9 +47,7 @@ public abstract class Account {
 //		return this.id;
 //	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  
 
 	public Integer getNumber() {
 		return this.number;

@@ -81,15 +81,6 @@ class SpecialAccountTest {
 	}
 
 
-//	@Test
-//	void testSetId() {
-//		try {
-//			
-//		} catch (Exception e) {
-//			fail(e.getMessage());
-//		}
-//	}
-
 	@Test
 	void testGetNumber() {
 		try {

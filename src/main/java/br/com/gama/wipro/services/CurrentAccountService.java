@@ -4,9 +4,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.persistence.OneToMany;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.gama.wipro.entities.Client;
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.entities.dto.CurrentDto;
@@ -19,11 +22,13 @@ public class CurrentAccountService {
 
 	private CurrentAccountRepository repository;
 	private CreditCardRepository creditCardRepository;
+	private ClientService clientService;
 
 	@Autowired
-	public CurrentAccountService(CurrentAccountRepository repository, CreditCardRepository creditCardRepository) {
+	public CurrentAccountService(CurrentAccountRepository repository, CreditCardRepository creditCardRepository, ClientService clientService) {
 		this.repository = repository;
 		this.creditCardRepository = creditCardRepository;
+		this.clientService = clientService;
 	}
 
 	public List<CurrentAccount> findAll() {
@@ -47,7 +52,8 @@ public class CurrentAccountService {
 		// próxima sprint
 		// validar se numero da conta já existe
 
-		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc, obj.getActive());
+		Client client = clientService.create(obj.getClient());
+		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc, client, obj.getActive());
 
 		return repository.save(current);
 	}

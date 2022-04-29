@@ -33,18 +33,20 @@ public abstract class Account {
 		this.active = true;
 	}
 
-	public Account(Integer number, Double balance, CreditCard creditCard, Boolean active) {
+	public Account(Integer number, Double balance, CreditCard creditCard, Client client, Boolean active) {
 		this.number = number;
 		this.balance = balance;
 		this.creditCard = creditCard;
+		this.client = client;
 		this.active = active;
 	}
 
-	public Account(Integer id, Integer number, Double balance, CreditCard creditCard, Boolean active) {
+	public Account(Integer id, Integer number, Double balance, CreditCard creditCard, Client client, Boolean active) {
 		this.id = id;
 		this.number = number;
 		this.balance = balance;
 		this.creditCard = creditCard;
+		this.client = client;
 		this.active = active;
 	}
 
@@ -82,5 +84,13 @@ public abstract class Account {
 	
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Client getClient() {
+		return client;
 	}
 }

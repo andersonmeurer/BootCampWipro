@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.gama.wipro.entities.Client;
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.SpecialAccount;
 import br.com.gama.wipro.entities.dto.CurrentDto;
@@ -20,11 +21,13 @@ public class SpecialAccountService {
 
 	private SpecialAccountRepository repository;
 	private CreditCardRepository creditCardRepository;
+	private ClientService clientService;
 
 	@Autowired
-	public SpecialAccountService(SpecialAccountRepository repository, CreditCardRepository creditCardRepository) {
+	public SpecialAccountService(SpecialAccountRepository repository, CreditCardRepository creditCardRepository, ClientService clientService) {
 		this.repository = repository;
 		this.creditCardRepository = creditCardRepository;
+		this.clientService = clientService;
 	}
 
 	public List<SpecialAccount> findAll() {
@@ -48,7 +51,8 @@ public class SpecialAccountService {
 		// próxima sprint
 		// validar se numero da conta já existe
 
-		SpecialAccount special = new SpecialAccount(obj.getNumber(), obj.getBalance(), cc, obj.getActive());
+		Client client = clientService.create(obj.getClient());
+		SpecialAccount special = new SpecialAccount(obj.getNumber(), obj.getBalance(), cc, client, obj.getActive());
 
 		return repository.save(special);
 	}

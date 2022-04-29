@@ -1,9 +1,6 @@
 package br.com.gama.wipro.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -16,14 +13,14 @@ public class SpecialAccount extends Account {
 		this.active = true;
 	}
 	
-	public SpecialAccount(Integer number, Double balance, CreditCard creditCard, Boolean active) {
-		super(number, balance, creditCard, active);
+	public SpecialAccount(Integer number, Double balance, CreditCard creditCard, Client client, Boolean active) {
+		super(number, balance, creditCard, client, active);
 		
 		overdraftLimit = balance * 1.5;
 	}
 
-	public SpecialAccount(Integer number, Double balance, CreditCard creditCard) {
-		super(number, balance, creditCard, true);
+	public SpecialAccount(Integer number, Double balance, CreditCard creditCard, Client client) {
+		super(number, balance, creditCard, client, true);
 		
 		overdraftLimit = balance * 1.5;
 	}

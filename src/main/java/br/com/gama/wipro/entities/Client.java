@@ -10,18 +10,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_user")
-public class Client implements Serializable{
+public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String name;
-	
+
+	public Client() {
+	}
+
 	public Client(String name) {
-		super();
-		this.id = id;
 		this.name = name;
 	}
 
@@ -36,5 +37,4 @@ public class Client implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 }

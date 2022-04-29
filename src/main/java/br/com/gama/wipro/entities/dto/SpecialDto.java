@@ -1,5 +1,7 @@
 package br.com.gama.wipro.entities.dto;
 
+import br.com.gama.wipro.entities.Client;
+
 public class SpecialDto {
 
 	private Integer number;
@@ -13,6 +15,8 @@ public class SpecialDto {
 	private Boolean active;
 
 	private CreditCardDto creditCard;
+
+	private ClientDto client;
 
 	public SpecialDto() {
 		this.creditCard = new CreditCardDto();
@@ -65,5 +69,13 @@ public class SpecialDto {
 	
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public void setClient(ClientDto client) {
+		this.client = client;
+	}
+
+	public ClientDto getClient() {
+		return client;
 	}
 }

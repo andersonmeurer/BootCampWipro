@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.google.gson.Gson;
 
+import br.com.gama.wipro.entities.Client;
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
 import br.com.gama.wipro.services.CurrentAccountService;
@@ -51,7 +52,7 @@ class ApplicationTests {
 			URI uri = new URI(URL);
 			
 			CreditCard cc = new CreditCard(0, 2500.0, CreditCard.generateNumber());
-			CurrentAccount newCurrentAccount = new CurrentAccount(0, 9999, 1000.0, cc, true);
+			CurrentAccount newCurrentAccount = new CurrentAccount(0, 9999, 1000.0, cc, new Client("Cliente Teste 1"), true);
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-COM-PERSIST", "true");
 			HttpEntity<CurrentAccount> request = new HttpEntity<>(newCurrentAccount, headers);
@@ -73,7 +74,7 @@ class ApplicationTests {
 		try {
 			String msg = this.restTemplate.getForObject(URL + "1", String.class);
 			CurrentAccount currentAccount = new Gson().fromJson(msg, CurrentAccount.class);
-			CurrentAccount expected = new CurrentAccount(1, currentAccount.getNumber(), 1000.0, new CreditCard(1, 2500.0, currentAccount.getCreditCard().getNumber()), true);
+			CurrentAccount expected = new CurrentAccount(1, currentAccount.getNumber(), 1000.0, new CreditCard(1, 2500.0, currentAccount.getCreditCard().getNumber()), new Client("Cliente Teste 1"), true);
 
 			assertEquals(expected.toString(), currentAccount.toString());
 		} catch (Exception e) {

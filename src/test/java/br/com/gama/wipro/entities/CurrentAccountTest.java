@@ -9,7 +9,7 @@ class CurrentAccountTest {
 	@Test
 	void test() {
 		try {
-			Account account = new CurrentAccount(1234, 1500.0, new CreditCard(500.0), true);
+			Account account = new CurrentAccount(1234, 1500.0, new CreditCard(500.0), new Client("Cliente Teste 1"), true);
 			assertEquals(1234, account.getNumber());
 			assertEquals(1500.0, account.getBalance());
 			account.withdraw(50.0);

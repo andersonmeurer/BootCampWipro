@@ -13,7 +13,7 @@ class SpecialAccountTest {
 
 	@BeforeEach
 	public void SpecialAccountTestInit() {
-		spa = new SpecialAccount(1234, 1500.0, new CreditCard(500.0));
+		spa = new SpecialAccount(1234, 1500.0, new CreditCard(500.0), new Client("Cliente Teste 1"));
 	}
 
 	@Test
@@ -35,7 +35,7 @@ class SpecialAccountTest {
 
 	@Test
 	void testSpecialAccountIntegerDoubleCreditCardBoolean() {
-		SpecialAccount spa1 = new SpecialAccount(1234, 10000.0, new CreditCard(), false);
+		SpecialAccount spa1 = new SpecialAccount(1234, 10000.0, new CreditCard(), new Client("Cliente Teste 1"), false);
 		assertEquals(1234, spa1.getNumber());
 		assertEquals(10000.0, spa1.getBalance());
 		assertEquals(15000.0, spa1.getOverdraftLimit());
@@ -45,7 +45,7 @@ class SpecialAccountTest {
 
 	@Test
 	void testSpecialAccountIntegerDoubleCreditCard() {
-		SpecialAccount spa3 = new SpecialAccount(1234, 1500.0, new CreditCard(500.0));
+		SpecialAccount spa3 = new SpecialAccount(1234, 1500.0, new CreditCard(500.0), new Client("Cliente Teste 1"));
 		assertEquals(1234, spa3.getNumber());
 		assertEquals(1500.0, spa3.getBalance());
 		spa3.withdraw(50.0);

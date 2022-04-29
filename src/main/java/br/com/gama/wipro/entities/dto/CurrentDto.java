@@ -1,5 +1,7 @@
 package br.com.gama.wipro.entities.dto;
 
+import br.com.gama.wipro.entities.Client;
+
 public class CurrentDto {
 
 	private Integer number;
@@ -12,17 +14,21 @@ public class CurrentDto {
 	
 	private Boolean active;
 
+	private ClientDto client;
+	
 	private CreditCardDto creditCard;
 
 	public CurrentDto() {
 		this.withdraw = 0D;
 		this.deposit = 0D;
+		this.client = new ClientDto("");
 		this.active = true;
 	}
 
-	public CurrentDto(Integer number, Double balance) {
+	public CurrentDto(Integer number, Double balance, ClientDto client) {
 		this.number = number;
 		this.balance = balance;
+		this.client = client;
 		this.active = true;
 	}
 
@@ -60,5 +66,13 @@ public class CurrentDto {
 	
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public ClientDto getClient() {
+		return client;
+	}
+
+	public void setClient(ClientDto client) {
+		this.client = client;
 	}
 }

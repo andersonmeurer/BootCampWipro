@@ -11,16 +11,16 @@ public class CurrentAccount extends Account {
 		this.active = true;
 	}
 
-	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard, Boolean active) {
-		super(id, number, balance, creditCard, active);
+	public CurrentAccount(Integer id, Integer number, Double balance, CreditCard creditCard, Client client, Boolean active) {
+		super(id, number, balance, creditCard, client, active);
 	}
 
-	public CurrentAccount(Integer number, Double balance, CreditCard creditCard, Boolean active) {
-		super(number, balance, creditCard, active);
+	public CurrentAccount(Integer number, Double balance, CreditCard creditCard, Client client, Boolean active) {
+		super(number, balance, creditCard, client, active);
 	}
 	
-	public CurrentAccount(Integer number, Double balance, CreditCard creditCard) {
-		super(number, balance, creditCard, true);
+	public CurrentAccount(Integer number, Double balance, CreditCard creditCard, Client client) {
+		super(number, balance, creditCard, client, true);
 	}
 
 	@Override

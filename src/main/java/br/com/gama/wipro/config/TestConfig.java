@@ -6,6 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import br.com.gama.wipro.entities.CreditCard;
 import br.com.gama.wipro.entities.CurrentAccount;
@@ -14,8 +15,8 @@ import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.CurrentAccountRepository;
 import br.com.gama.wipro.repositories.SpecialAccountRepository;
 
-//@Configuration
-//@Profile("test")
+@Configuration
+@Profile("test")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired

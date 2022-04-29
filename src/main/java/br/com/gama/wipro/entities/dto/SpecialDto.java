@@ -16,6 +16,7 @@ public class SpecialDto {
 
 	public SpecialDto() {
 		this.creditCard = new CreditCardDto();
+		this.balance = 0D;
 		this.withdraw = 0D;
 		this.deposit = 0D;
 		this.active = true;

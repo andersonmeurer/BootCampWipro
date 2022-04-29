@@ -4,6 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
@@ -23,6 +24,10 @@ public abstract class Account {
 	@OneToOne
 	@JoinColumn(referencedColumnName = "id", name = "credit_card_id")
 	protected CreditCard creditCard;
+	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id", name = "user_id")
+	protected Client client;
 
 	public Account() {
 		this.active = true;

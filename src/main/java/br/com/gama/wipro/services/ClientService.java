@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.gama.wipro.entities.Client;
+import br.com.gama.wipro.entities.SpecialAccount;
 import br.com.gama.wipro.entities.dto.ClientDto;
+import br.com.gama.wipro.entities.dto.CurrentDto;
 import br.com.gama.wipro.entities.dto.SpecialDto;
 import br.com.gama.wipro.repositories.ClientRepository;
 
@@ -47,6 +49,18 @@ public class ClientService {
 			
 			objOrigin.setName(name);
 					
+			return Optional.of(repository.save(objOrigin));
+		}
+		return Optional.empty();
+	}
+	
+	public Optional<Client> deactivate(Integer id, ClientDto obj) {
+		Optional<Client> oObjOrigin = repository.findById(id);
+
+		if (oObjOrigin.isPresent()) {
+			Client objOrigin = oObjOrigin.get();
+//			objOrigin.getCreditCard().setActive(obj.getActive());
+			objOrigin.setActive(obj.getActive());
 			return Optional.of(repository.save(objOrigin));
 		}
 		return Optional.empty();

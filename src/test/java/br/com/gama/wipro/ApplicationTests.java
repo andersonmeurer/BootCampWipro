@@ -51,7 +51,7 @@ class ApplicationTests {
 		try {
 			URI uri = new URI(URL);
 			
-			CreditCard cc = new CreditCard(0, 2500.0, CreditCard.generateNumber());
+			CreditCard cc = new CreditCard(2500.0);
 			CurrentAccount newCurrentAccount = new CurrentAccount(0, 9999, 1000.0, cc, new Client("Cliente Teste 1"), true);
 			HttpHeaders headers = new HttpHeaders();
 			headers.set("X-COM-PERSIST", "true");

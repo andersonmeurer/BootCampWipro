@@ -9,11 +9,14 @@ public class ClientDto {
 	
 	private SpecialDto specialAccount;
 	
+	private Boolean active;
+	
 	public ClientDto() {
 	}
 	
 	public ClientDto(String name) {
 		this.name = name;
+		this.active = true;
 	}
 
 	public Integer getId() {
@@ -30,6 +33,14 @@ public class ClientDto {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Boolean getActive () {
+		return this.active;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 	
 }

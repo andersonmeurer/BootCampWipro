@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_user")
+@Table(name = "tb_client")
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -18,12 +18,16 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Integer id;
 	String name;
+	Boolean active;
 
 	public Client() {
+		this.name="UpdateName";
+		this.active=true;
 	}
 
 	public Client(String name) {
 		this.name = name;
+		this.active=true;
 	}
 
 	public Integer getId() {
@@ -34,7 +38,18 @@ public class Client implements Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
+	public String setName(String name) {
 		this.name = name;
+		return name;
 	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+	
+	
 }

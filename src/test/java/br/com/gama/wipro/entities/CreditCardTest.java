@@ -13,7 +13,7 @@ class CreditCardTest {
 	private CreditCard cd; 
 	@BeforeEach
 	public void CreditCardTestInit() {
-		cd = new CreditCard(1234, 1500.0, "1234 1234 1234 1234");	
+		cd = new CreditCard(1500.0);	
 	}
 	@Test
 	void testCreditCard() {
@@ -36,46 +36,12 @@ class CreditCardTest {
 		}
 	}
 
-	@Test
-	void testCreditCardDoubleString() {
-		try {
-			CreditCard cd = new CreditCard(123.0, "1234 1234 1234 1234");
-			assertEquals(123, cd.getBalance());
-			assertEquals("1234 1234 1234 1234", cd.getNumber());
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
-
-	@Test
-	void testCreditCardIntegerDoubleString() {
-		try {
-			CreditCard cd = new CreditCard(1234, 123.0, "1234 1234 1234 1234");
-			System.out.println(cd.getNumber());
-			assertEquals(1234, cd.getId());
-			assertEquals(123.0, cd.getBalance());
-			assertEquals("1234 1234 1234 1234", cd.getNumber());
-			assertEquals(true, cd.getActive());
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
-
-
-	@Test
-	void testGetId() {
-		try {
-			System.out.println(cd.getId());
-			assertEquals(1234, cd.getId());
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
 
 	@Test
 	void testGetNumber() {
 		try {
-			
+			String number = cd.getNumber();
+			assertEquals(number, cd.getNumber());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -84,7 +50,7 @@ class CreditCardTest {
 	@Test
 	void testGetBalance() {
 		try {
-			
+			assertEquals(1500D, cd.getBalance());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -93,7 +59,7 @@ class CreditCardTest {
 	@Test
 	void testGetActive() {
 		try {
-			
+			assertEquals(true, cd.getActive());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

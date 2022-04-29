@@ -14,25 +14,23 @@ public class SpecialDto {
 	
 	private Boolean active;
 
-	private CreditCardDto creditCard;
-
 	private ClientDto client;
 
+	private CreditCardDto creditCard;
+
+
 	public SpecialDto() {
-		this.creditCard = new CreditCardDto();
-		this.balance = 0D;
 		this.withdraw = 0D;
 		this.deposit = 0D;
+		this.client = new ClientDto("");
 		this.active = true;
 	}
 
-	public SpecialDto(Integer number, Double balance) {
-		this.creditCard = new CreditCardDto();
+	public SpecialDto(Integer number, Double balance, ClientDto client) {
 		this.number = number;
 		this.balance = balance;
+		this.client = client;
 		this.active = true;
-		this.withdraw = 0D;
-		this.deposit = 0D;
 	}
 
 	public Integer getNumber() {

@@ -27,6 +27,7 @@ public class CreditCard implements Serializable{
 	private Boolean active;
 	
 	public CreditCard () {
+		this.number = generateNumber();
 		this.active = true;
 	}
 
@@ -36,18 +37,18 @@ public class CreditCard implements Serializable{
 		this.active = true;
 	}
 
-	public CreditCard(Double balance, String number) {
-		this.number = number;
-		this.balance = balance;
-		this.active = true;
-	}
+//	public CreditCard(Double balance, String number) {
+//		this.number = number;
+//		this.balance = balance;
+//		this.active = true;
+//	}
 
-	public CreditCard(Integer id, Double balance, String number) {
-		this.id = id;
-		this.number = number;
-		this.balance = balance;
-		this.active = true;
-	}
+//	public CreditCard(Integer id, Double balance, String number) {
+//		this.id = id;
+//		this.number = number;
+//		this.balance = balance;
+//		this.active = true;
+//	}
 
 	public Integer getId() {
 		return this.id;
@@ -57,9 +58,9 @@ public class CreditCard implements Serializable{
 		return number;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
+//	public void setNumber(String number) {
+//		this.number = number;
+//	}
 
 	public Double getBalance() {
 		return balance;

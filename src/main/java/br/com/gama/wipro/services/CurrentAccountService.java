@@ -42,15 +42,13 @@ public class CurrentAccountService {
 
 	public CurrentAccount create(CurrentDto obj) {
 
-		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance(), obj.getCreditCard().getNumber());
+		CreditCard cc = new CreditCard(obj.getCreditCard().getBalance());
 		creditCardRepository.save(cc);
 
 		if (obj.getNumber() == null) {
 			obj.setNumber(ThreadLocalRandom.current().nextInt(1000, 9999));
 		}
 
-		// próxima sprint
-		// validar se numero da conta já existe
 
 		Client client = clientService.create(obj.getClient());
 		CurrentAccount current = new CurrentAccount(obj.getNumber(), obj.getBalance(), cc, client, obj.getActive());

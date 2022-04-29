@@ -14,7 +14,7 @@ import br.com.gama.wipro.repositories.CreditCardRepository;
 import br.com.gama.wipro.repositories.CurrentAccountRepository;
 import br.com.gama.wipro.repositories.SpecialAccountRepository;
 
-@Configuration
+//@Configuration
 //@Profile("test")
 public class TestConfig implements CommandLineRunner {
 
